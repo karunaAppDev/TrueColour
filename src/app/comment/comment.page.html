@@ -1,0 +1,58 @@
+
+<ion-header >
+  <ion-toolbar mode="ios" >
+    <ion-title style= "color : black" >
+      <strong>Comments</strong>
+    </ion-title>
+    <ion-buttons slot="start">
+        <ion-buttons slot="start">
+          <ion-back-button style=" color:black " ></ion-back-button>
+        </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   
+  <ion-item-sliding *ngFor="let userscomment of userCommentarray;index as i " #slidingItem>
+   
+    <ion-card-content >
+      <strong style=" color:white ;font-family: Verdana, Geneva, Tahoma, sans-serif">
+        <a (click)="showProfile(userscomment.profileID)"> {{userscomment.userName}} </a>: {{userscomment.commentvalue}}
+      </strong>
+    </ion-card-content>
+    
+  </ion-item-sliding>
+
+  <form [formGroup]="form">
+    <ion-grid>
+      <ion-item>
+        <ion-label style=" font-family: Verdana, Geneva, Tahoma, sans-serif"position="floating">Add your comments.. </ion-label>
+        <ion-textarea formControlName="comments" class="about"></ion-textarea>
+      </ion-item>
+    </ion-grid>
+
+    <br>
+    <br>
+    <div style=" color:white ">
+        * only one comment per user (latest comment will be displayed)
+    </div>
+    <br>
+   
+    <ion-button
+    style=" background-color:#3880ff; color:black ;font-family: Verdana, Geneva, Tahoma, sans-serif"
+      expand="block"
+      fill="outline"
+      ion-button 
+      round="true"
+      full
+      type="submit"
+      (click)="addComments()"
+      [disabled]="!form.valid ">
+      <strong>Submit</strong>
+    </ion-button>
+    
+  </form>
+
+</ion-content>
+

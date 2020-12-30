@@ -1,0 +1,28 @@
+.user-details {
+    display: flex;
+    align-items: center;
+}
+#search
+{
+    background-color: white;
+}
+
+.input{
+    border: 1px solid #3880ff;
+}
+
+  ion-searchbar {
+    color: #3880ff !important;
+    font-size: 10pt;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    --placeholder-color: white !important;
+    --placeholder-opacity: 100%;
+  }
+
+  ion-input {
+    color: black!important;
+    font-size: 10pt;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    --placeholder-color:black !important;
+    --placeholder-opacity: 100%;
+  }

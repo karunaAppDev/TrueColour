@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "294579828181",
+    "firebase_url": "https://mobileapp-5fcd7.firebaseio.com",
+    "project_id": "mobileapp-5fcd7",
+    "storage_bucket": "mobileapp-5fcd7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294579828181:android:b5a51978bd6537cedab95c",
+        "android_client_info": {
+          "package_name": "com.truecolour.sms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "294579828181-ve0kdaq3jc00ktjukio09nm3s1cmf2df.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.truecolour.sms",
+            "certificate_hash": "d8b4440d549a871bcad32c2f7b7f9a2be19fe4d7"
+          }
+        },
+        {
+          "client_id": "294579828181-fp7c6j38pdlfbdndqst2018vleqgn885.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.truecolour.sms",
+            "certificate_hash": "22f8f9c0b62e89ec2d0e1075f9ff80465ecb6f30"
+          }
+        },
+        {
+          "client_id": "294579828181-qhiruddj54ad0v4g0cmtctaeje2ogtes.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs0gsIEq-yOGnFIj5Ahv-357N4yLFoOGo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "294579828181-qhiruddj54ad0v4g0cmtctaeje2ogtes.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

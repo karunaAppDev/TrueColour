@@ -1,0 +1,39 @@
+
+<ion-header >
+  <ion-toolbar mode="ios" >
+    <ion-title style= "color : black" >
+      <strong>Profile</strong>
+    </ion-title>
+    <ion-buttons slot="start">
+        <ion-buttons slot="start">
+          <ion-menu-button style= "color : black "></ion-menu-button>
+        </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item-sliding *ngFor="let users of userData " #slidingItem>
+  
+      <div class="Image">
+        <img [src]="users['imageUrl']">
+      </div>
+
+        <ion-card-content class="input">
+          <br /> <strong style="color:#3880ff ; font-family: Verdana, Geneva, Tahoma, sans-serif"> Name : {{users['Firstname']}} {{users['LastName']}}</strong>
+          <br />
+          <br />
+          <strong style="color:#3880ff  ; font-family: Verdana, Geneva, Tahoma, sans-serif">Phone No : {{users['PhoneNumber']}}</strong> 
+          <br />
+          <br />
+           <strong style="color:#3880ff  ; font-family: Verdana, Geneva, Tahoma, sans-serif">Email : {{users['Email']}}</strong> 
+          <br />
+          <br />
+          
+          <strong style="color:#3880ff  ; font-family: Verdana, Geneva, Tahoma, sans-serif"> Address : {{users['Address']}} </strong> 
+          <br />
+          <br />
+        </ion-card-content>
+
+      </ion-item-sliding>
+    </ion-content>

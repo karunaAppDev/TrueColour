@@ -1,0 +1,7 @@
+{
+  "name": "truecolour",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

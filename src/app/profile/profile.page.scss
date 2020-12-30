@@ -1,0 +1,67 @@
+.form{
+    max-width: 100%;
+    height: 60vh;
+    max-height: 60vh;
+    
+}
+
+.image{
+  max-width: 400%;
+    height: 30vh;
+    
+}
+.dropdown{
+
+    max-height: 10vh;
+}
+
+.about{
+    max-height: 25vh; 
+}
+
+.option{
+    max-height: 5vh; 
+}
+
+.input{
+    border: 1px solid #3880ff;
+}
+
+.session-buttons{
+    float: center;
+    position: relative;
+    left: 80px;
+    border: 0px;
+    button{
+        height: 65px;
+        width: 65px;
+        background-color:transparent;
+
+    }
+    ion-icon{
+        border: 0 none !important;
+        background-color: transparent !important;
+    } 
+}
+
+button-clicked {
+    background: red;
+  }
+
+ion-input {
+    color: #3880ff !important;
+    font-size: 13pt;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    --placeholder-color: White !important;
+    --placeholder-opacity: 100%;
+  }
+
+
+  ion-textarea {
+    color: #3880ff !important;
+    font-size: 13pt;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    --placeholder-color: white !important;
+    --placeholder-opacity: 100%;
+  }
+  #email{text-transform: lowercase;}

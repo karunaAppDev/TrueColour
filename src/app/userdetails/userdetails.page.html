@@ -1,0 +1,136 @@
+<ion-content>
+  <ion-item-sliding *ngFor="let users of userData " #slidingItem>
+
+    <div class="Image">
+      <img [src]="users['imageUrl']">
+    </div>
+
+
+    <br>
+
+    <ion-card-header style="text-align: center;">  <strong style=  "color:#3880ff ; text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif"> Personal Details </strong> </ion-card-header>
+    <ion-card-content class="input" >
+
+       
+      
+      <br/> 
+      <br/> 
+      <strong style="color:#3880ff ; font-family: Verdana, Geneva, Tahoma, sans-serif"> Name :
+        {{users['Firstname']}} {{users['LastName']}}</strong>  
+      <br/>
+      <br/>
+      <strong style="color:#3880ff ; font-family: Verdana, Geneva, Tahoma, sans-serif">Phone No :
+        {{users['PhoneNumber']|encodedPhoneNumber}}</strong>
+      <br/>
+      <br/>
+      <strong style="color:#3880ff ; font-family: Verdana, Geneva, Tahoma, sans-serif">Email :
+        {{users['Email']|encodedEmail}}</strong>
+      <br/>
+      <br/>
+      <strong style="color:#3880ff ; font-family: Verdana, Geneva, Tahoma, sans-serif">Social Media
+        @{{users['SocialMedia']}} : {{users['SocialMediaAnswer']}} </strong>
+      <br />
+      <br />
+      <strong style="color:#3880ff ; font-family: Verdana, Geneva, Tahoma, sans-serif"> Address : {{users['Address']}}
+      </strong>
+      <br />
+      <br />
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+      <u><a style="color: #3880ff"
+        (click)="showProfile(users['profileCreaterId'])"> <strong>Created By </strong></a> </u>
+        <br>
+        <u><a style="color: #3880ff"
+          (click)="share()"> <strong>Share </strong></a> </u>
+          <br>
+    </ion-card-content>
+
+    <ion-button expand="block" fill="outline" style="color: #3880ff" shape="round"
+      (click)="setContentType(users['Related']) "> <strong
+        style="color:#3880ff ;font-family: Verdana, Geneva, Tahoma, sans-serif">
+        {{users['Related']}} says... </strong></ion-button>
+
+    <ion-card-content class="input">
+      <div *ngIf=showContent>
+        <div *ngIf="exContent">
+          <strong style="color:#3880ff ; font-family: Verdana, Geneva, Tahoma, sans-serif"> Still miss them :
+            {{users['Missyou']}} </strong>
+          <br />
+          <br />
+          <strong style="color:#3880ff ; font-family: Verdana, Geneva, Tahoma, sans-serif"> Ever regret breaking up with
+            this person : {{users['Regret']}}
+            {{users['talkabout']}} </strong>
+          <br />
+          <br />
+          <strong style="color:#3880ff ; font-family: Verdana, Geneva, Tahoma, sans-serif"> Questions the heart needs
+            answers for : {{users['HeartNeedAnswer']}}</strong>
+          <br />
+          <br />
+          <strong style="color:#3880ff ; font-family: Verdana, Geneva, Tahoma, sans-serif">His/Her feelings :
+            {{users['ExpressYourFeeling']}}</strong>
+          <br />
+          <br />
+          
+        </div>
+      </div>
+      <div *ngIf=showContent>
+        <div *ngIf="friendContent">
+          <strong style="color:#3880ff ; font-family: Verdana, Geneva, Tahoma, sans-serif"> Is Your Friend Trustable :
+            {{users['Trustable']}}</strong>
+          <br />
+          <br />
+          <strong style="color:#3880ff ; font-family: Verdana, Geneva, Tahoma, sans-serif">Annoying habits/qualities of
+            your dear friend : {{users['Annoying']}}</strong>
+          <br />
+          <br />
+          <strong style="color:#3880ff ; font-family: Verdana, Geneva, Tahoma, sans-serif">Reveal a wierd secret :
+            {{users['WierdSecret']}}</strong>
+          <br />
+          <br />
+          <strong style="color:#3880ff ; font-family: Verdana, Geneva, Tahoma, sans-serif">Opinion/thoughts about your
+            friend : {{users['FriendOpinion']}}</strong>
+            <br />
+            <br />
+        </div>
+      </div>
+
+      <div *ngIf=showContent>
+        <div *ngIf="anonymosContent">
+          <strong style="color:#3880ff ; font-family: Verdana, Geneva, Tahoma, sans-serif">Opinion/thoughts :
+            {{users['AnonymosOpinion']}}</strong>
+          <br />
+        </div>
+      </div>
+
+    </ion-card-content>
+
+    <ion-button style="color: #3880ff" fill="outline" expand="block" shape="round" (click)="addComments()"> <strong
+        style="color :#3880ff ; font-family: Verdana, Geneva, Tahoma, sans-serif"> See More comments </strong>
+    </ion-button>
+    <br />
+    <br />
+    <br />
+
+  </ion-item-sliding>
+</ion-content>
+<br />
+
+<footer class="footer">
+  <ion-content>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom" style="background-color:#3880ff">
+        <ion-tab-button (click)="wanttoKnow()" style="background-color: #3880ff">
+          <ion-label style="color: black; font-family: Verdana, Geneva, Tahoma, sans-serif"><strong>Know About
+              Them</strong> </ion-label>
+          <ion-icon style="color: black;" name="search"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="wanttoTell()" style="background-color:#3880ff">
+          <ion-label style="color: black; font-family: Verdana, Geneva, Tahoma, sans-serif"><strong>Tell About
+              Them</strong></ion-label>
+          <ion-icon style="color: black;" name="chatbubble-ellipses-outline"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-content>
+</footer>

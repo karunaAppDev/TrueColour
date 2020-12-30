@@ -1,0 +1,13 @@
+{
+  "appId": "com.truecolour.sms",
+  "appName": "truecolour",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 5000
+    }
+  },
+  "cordova": {}
+}

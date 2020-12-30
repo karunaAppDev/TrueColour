@@ -1,0 +1,98 @@
+
+<ion-header >
+  <ion-toolbar mode="ios" >
+    <ion-title style= "background-color : #3880ff ;color: black;" >
+      Create Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="form">
+      
+      
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            
+              <app-image-picker [showPreview]="form.get('image').value" (imagePick)="onImagePicked($event)">
+                </app-image-picker>
+          </ion-col>
+        </ion-row>
+      </ion-grid> 
+      <div class="form">
+        <ion-grid>
+          <ion-row>
+            <ion-col class="ion-align-self-start">
+              <ion-input class="input text-input" onkeyup="this.value = this.value.replace(/\s/g,'')" type="text" autocomplete autocorrect placeholder="Firstname *"
+                formControlName="Firstname">
+              </ion-input>
+            </ion-col>
+            <ion-col class="ion-align-self-center">
+              <ion-input class="input" onkeyup="this.value = this.value.replace(/\s/g,'')" type="text" autocomplete autocorrect placeholder="LastName *"
+                formControlName="LastName">
+              </ion-input>
+            </ion-col>
+          </ion-row>
+  
+          <ion-row>
+             <div *ngFor="let validation of validation_messages.FirstName">
+              <small style="color: tomato;" class="text-danger"
+                *ngIf="form.get('Firstname').hasError(validation.type) && (form.get('Firstname').dirty || form.get('Firstname').touched)">
+                {{ validation.message }}
+              </small>
+            </div> 
+          </ion-row>
+            <ion-row><div *ngFor="let validation of validation_messages.LastName">
+              <small style="color: tomato;" class="text-danger"
+                *ngIf="form.get('LastName').hasError(validation.type) && (form.get('LastName').dirty || form.get('LastName').touched)">
+                {{ validation.message }}
+              </small>
+            </div>
+          </ion-row>
+  
+          <ion-row>
+            <ion-col class="ion-align-self-start">
+              <ion-input class="input" type="text" id="Email" autocomplete autocorrect placeholder="Email *" formControlName="Email"
+              [disabled]="true" name ="email" [(ngModel)] ="email"></ion-input>
+            </ion-col>
+            <!-- [disabled]="true"  TODO--> 
+            <ion-col class="ion-align-self-center">
+              <ion-input class="input" name ="phoneNumber" type="text" autocomplete autocorrect placeholder="PhoneNumber *"
+              [disabled]="true" formControlName="PhoneNumber" [(ngModel)] ="phoneNumber">
+              </ion-input>
+            </ion-col>
+          </ion-row>
+  
+        </ion-grid>
+      
+        <ion-grid>
+          <ion-row class="input">
+            <ion-col class="ion-align-self-start">
+              <ion-label position="floating" style="color:#3880ff; font-family: Verdana, Geneva, Tahoma, sans-serif">
+                <strong> Address *</strong></ion-label>
+              <ion-textarea formControlName="Address" placeholder="City & State"></ion-textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-row>
+         <div *ngFor="let validation of validation_messages.Address">
+            <small style="color: tomato;" class="text-danger"
+              *ngIf="form.get('Address').hasError(validation.type) && (form.get('Address').dirty || form.get('Address').touched)">
+              {{ validation.message }}
+            </small>
+          </div>
+        </ion-row>
+
+        <ion-row>
+            <ion-col class="submit-col">
+              <ion-button class="input" style="color:#3880ff" expand="block" fill="outline" 
+                round="true" full (click)="createProfile()" [disabled]="!form.valid ">Submit
+              </ion-button>
+            </ion-col>
+          </ion-row>
+
+
+        </div>
+      </form>
+</ion-content>

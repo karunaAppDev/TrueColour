@@ -1,0 +1,23 @@
+<ion-content padding class="signup-style"></ion-content>
+
+<div class="login" style="align-content: center; ">
+  <div class="login-box">
+    <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+      <ion-row>
+          <ion-col class="submit-col" style="background-color: #3880ff">
+            <ion-button type="button"  style="color:black;" fill="clear" expand="block" (click)="fnLoginWithGoogle()"> 
+              <ion-icon name="logo-google"></ion-icon> &nbsp; <strong>Login with google</strong> 
+            </ion-button>
+          </ion-col>
+      </ion-row>
+
+      <!-- <ion-row>
+        <ion-col class="submit-col">
+          <ion-button type="button" color="primary" fill="clear" expand="block" routerLink="/login-with-phone"> 
+            <ion-icon name="call"></ion-icon> &nbsp;<strong>Login with Phone</strong> 
+          </ion-button>
+        </ion-col>
+    </ion-row> -->
+    </form>
+  </div>
+</div>

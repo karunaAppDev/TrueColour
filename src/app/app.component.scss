@@ -1,0 +1,13 @@
+ion-item{
+    font-size: 0.75rem;  
+}
+ion-title{
+    background-color: #3880ff;
+    color:white;
+}
+
+
+  ion-item:hover {
+    --background:#3880ff;
+   --color:white;
+  }

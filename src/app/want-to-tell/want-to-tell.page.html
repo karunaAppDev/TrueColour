@@ -1,0 +1,277 @@
+<ion-content>
+  <form [formGroup]="form">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <app-image-picker [showPreview]="form.get('image').value" (imagePick)="onImagePicked($event)">
+          </app-image-picker>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+    <div class="form">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-align-self-start">
+            <ion-input class="input text-input" onkeyup="this.value = this.value.replace(/\s/g,'')" type="text" autocomplete autocorrect placeholder="First Name *"
+              formControlName="Firstname" >
+            </ion-input>
+          </ion-col>
+          <ion-col class="ion-align-self-center">
+            <ion-input class="input" type="text" onkeyup="this.value = this.value.replace(/\s/g,'')" autocomplete autocorrect placeholder="Last Name *"
+              formControlName="LastName">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+           <div *ngFor="let validation of validation_messages.FirstName">
+            <small style="color: tomato;" class="text-danger"
+              *ngIf="form.get('Firstname').hasError(validation.type) && (form.get('Firstname').dirty || form.get('Firstname').touched)">
+              {{ validation.message }}
+            </small>
+          </div> 
+        </ion-row>
+          <ion-row><div *ngFor="let validation of validation_messages.LastName">
+            <small style="color: tomato;" class="text-danger"
+              *ngIf="form.get('LastName').hasError(validation.type) && (form.get('LastName').dirty || form.get('LastName').touched)">
+              {{ validation.message }}
+            </small>
+          </div>
+        </ion-row>
+
+        <ion-row>
+          <ion-col class="ion-align-self-start">
+            <ion-input class="input" type="text" onkeyup="this.value = this.value.toLowerCase();" autocomplete autocorrect placeholder="Email *" formControlName="Email">
+            </ion-input>
+          </ion-col>
+          <ion-col class="ion-align-self-center">
+            <ion-input class="input" type="text" autocomplete autocorrect placeholder="Phone Number *"
+              formControlName="PhoneNumber">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+         <div *ngFor="let validation of validation_messages.Email">
+            <small style="color: tomato;" class="text-danger"
+              *ngIf="form.get('Email').hasError(validation.type) && (form.get('Email').dirty || form.get('Email').touched)">
+              {{ validation.message }}
+            </small>
+          </div>
+        </ion-row>
+          <ion-row><div *ngFor="let validation of validation_messages.PhoneNumber">
+            <small style="color: tomato;" class="text-danger"
+              *ngIf="form.get('PhoneNumber').hasError(validation.type) && (form.get('PhoneNumber').dirty || form.get('PhoneNumber').touched)">
+              {{ validation.message }}
+            </small>
+          </div>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row class="input">
+          <ion-col class="ion-align-self-start">
+            <ion-label position="floating" style="color:#3880ff; font-family: Verdana, Geneva, Tahoma, sans-serif">
+              <strong> Address *</strong></ion-label>
+            <ion-textarea formControlName="Address" placeholder="City & State"></ion-textarea>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-row>
+         <div *ngFor="let validation of validation_messages.Address">
+          <small style="color: tomato;" class="text-danger"
+            *ngIf="form.get('Address').hasError(validation.type) && (form.get('Address').dirty || form.get('Address').touched)">
+            {{ validation.message }}
+          </small>
+        </div>
+      </ion-row>
+
+      <ion-grid>
+        <ion-row class="input">
+          <ion-col class="ion-align-self-start">
+            <ion-label style="color:#3880ff; font-family: Verdana, Geneva, Tahoma, sans-serif"><strong>Social Media
+                Detail</strong></ion-label>
+            <ion-select (ionChange)="showSocialMediaAnswer($event)" formControlName="SocialMedia" value="" okText="Ok"
+              cancelText="Cancel">
+              <ion-select-option value="Facebook">Facebook</ion-select-option>
+              <ion-select-option value="Instagram">Instagram</ion-select-option>
+              <ion-select-option value="TikTok">TikTok</ion-select-option>
+              <ion-select-option value="LinkedIn">LinkedIn</ion-select-option>
+              <ion-select-option value="Twitter">Twitter</ion-select-option>
+            </ion-select>
+
+
+            <div *ngIf="displaySocialMediaField">
+                <ion-row class="input">
+                    <ion-col class="ion-align-self-start">
+                <ion-label style="color:#3880ff; " position="floating"><strong>Social Media Handle</strong></ion-label>
+                <ion-textarea style="color:white; " class="input" formControlName="SocialMediaAnswer" class="about"></ion-textarea>
+              </ion-col>
+            </ion-row>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row class="input">
+          <ion-col class="ion-align-self-start">
+            <ion-label style="color:#3880ff; font-family: Verdana, Geneva, Tahoma, sans-serif"> <strong>Related
+                *</strong></ion-label>
+            <ion-select (ionChange)="relatedBy($event)" formControlName="Related" value="" okText="Ok"
+              cancelText="Cancel">
+              <ion-select-option value="EX">EX</ion-select-option>
+              <ion-select-option value="Friend">Friend</ion-select-option>
+              <ion-select-option value="Anonymous">Anonymous</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      
+
+      <div *ngIf="EXForm">
+
+
+        <ion-grid>
+          <ion-row class="input">
+            <ion-col class="ion-align-self-start">
+              <ion-label style="color:#3880ff;"><strong>Do you still miss them ?</strong></ion-label>
+              <ion-select (ionChange)="revangeSure($event)" formControlName="Missyou" value="" okText="Ok"
+                cancelText="Cancel">
+                <ion-select-option value="Yes ❤️ ">Yes ❤️ </ion-select-option>
+                <ion-select-option value="No 💔"> No 💔</ion-select-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+          <ion-row class="input">
+            <ion-col class="ion-align-self-start">
+              <ion-label style="color:#3880ff;"><strong>Do you ever regret breaking up with this person?</strong> </ion-label>
+              <ion-select (ionChange)="showOtherFieldSeeAgain($event)" formControlName="Regret" value=""
+                okText="Ok" cancelText="Cancel">
+                <ion-select-option value="Yes I Do">Yes I Do</ion-select-option>
+                <ion-select-option value="No Never"> No Never</ion-select-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+            <ion-row class="input">
+              <ion-col class="ion-align-self-start">
+                <ion-label style="color: #3880ff;" position="floating"><strong>List out the questions your heart needs answers for ?</strong></ion-label>
+                <ion-textarea formControlName="HeartNeedAnswer" class="HeartNeedAnswer"></ion-textarea>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+
+        <ion-grid>
+          <ion-row class="input">
+            <ion-col class="ion-align-self-start">
+              <ion-label style="color: #3880ff;" position="floating"><strong>Express your feelings...</strong></ion-label>
+              <ion-textarea formControlName="ExpressYourFeeling" class="ExpressYourFeeling"></ion-textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-row>
+          &nbsp;&nbsp; <div *ngFor="let validation of validation_messages.ExpressYourFeeling">
+            <small style="color: tomato;" class="text-danger"
+              *ngIf="form.get('ExpressYourFeeling').hasError(validation.type) && (form.get('ExpressYourFeeling').dirty || form.get('ExpressYourFeeling').touched)">
+              {{ validation.message }}
+            </small>
+          </div>
+        </ion-row>
+
+        <ion-row>
+          <ion-col class="submit-col">
+            <ion-button class="input" style="background-color:#3880ff; color:black" expand="block" fill="outline" 
+              round="true" full type="submit" (click)="tellAboutThem()"
+              [disabled]="!form.valid ">Submit
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div *ngIf="FriendForm">
+          <ion-grid>
+              <ion-row class="input">
+                <ion-col class="ion-align-self-start">
+              <ion-label style="color: #3880ff;"><strong>Is your friend trustable ?</strong></ion-label>
+              <ion-select formControlName="Trustable" value="" okText="Ok" cancelText="Cancel">
+                <ion-select-option value="Yes">Yes </ion-select-option>
+                <ion-select-option value="No"> No </ion-select-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+            <ion-grid>
+                <ion-row class="input">
+                  <ion-col class="ion-align-self-start">
+              <ion-label style="color: #3880ff;" position="floating"><strong>Annoying habits/qualities of your dear friend... </strong></ion-label>
+              <ion-textarea formControlName="Annoying" class="Annoying"></ion-textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+           
+
+            <ion-grid>
+                <ion-row class="input">
+                  <ion-col class="ion-align-self-start">
+              <ion-label style="color: #3880ff;" position="floating"><strong>Reveal a wierd secret... </strong></ion-label>
+              <ion-textarea formControlName="WierdSecret" class="about"></ion-textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+            <ion-grid>
+          <ion-row class="input">
+            <ion-col class="ion-align-self-start">
+              <ion-label style="color :#3880ff;" position="floating"><strong>Your opinion/thoughts about your friend... </strong></ion-label>
+              <ion-textarea formControlName="FriendOpinion" class="about"></ion-textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-row>
+          <ion-col class="submit-col">
+            <ion-button class="input" style="background-color:#3880ff; color:black" expand="block" fill="outline" 
+              round="true" full (click)="tellAboutThem()" [disabled]="!form.valid "><strong>Submit</strong>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+       
+      </div> <!-- Friends Form  Ends-->
+
+      <div *ngIf="AnonymousForm"> <!-- Anonymous Form  Starts-->
+
+          <ion-grid>
+              <ion-row class="input">
+                <ion-col class="ion-align-self-start">
+                  <ion-label style="color: #3880ff;" position="floating"><strong>Your opinion/thoughts about this person... </strong></ion-label>
+                  <ion-textarea formControlName="AnonymosOpinion" class="about"></ion-textarea>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+    
+            <ion-row>
+              <ion-col class="submit-col">
+                <ion-button class="input" style="background-color:#3880ff; color:black" expand="block" fill="outline" 
+                  round="true" full (click)="tellAboutThem()" [disabled]="!form.valid "><strong>Submit</strong>
+                </ion-button>  
+              </ion-col>
+            </ion-row>
+
+      </div><!-- Anonymous Form  Ends-->
+
+    </div>
+  </form>
+</ion-content>
+ 

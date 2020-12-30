@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-title>Feedback</ion-title>
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <ion-back-button style=" color:black " ></ion-back-button>
+      </ion-buttons>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="form">
+    <ion-grid>
+      <ion-item>
+        <ion-label style=" font-family: Verdana, Geneva, Tahoma, sans-serif"position="floating">Give your valuable feedback.. </ion-label>
+        <ion-textarea formControlName="feedback" class="about"></ion-textarea>
+      </ion-item>
+    </ion-grid>
+
+    <br>
+    
+    <ion-button
+    style=" background-color:#3880ff; color:black ;font-family: Verdana, Geneva, Tahoma, sans-serif"
+      expand="block"
+      fill="outline"
+      ion-button 
+      round="true"
+      full
+      type="submit"
+      (click)="addFeedback()"
+      [disabled]="!form.valid ">
+      <strong>Submit</strong>
+    </ion-button>
+    
+  </form>
+
+</ion-content>
